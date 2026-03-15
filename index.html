@@ -35,47 +35,37 @@ textarea{width:100%;border:1px solid #bbb;border-radius:3px;padding:6px;font-siz
 textarea:focus{border-color:#8B0000}
 .qtext{font-size:13px;margin-bottom:5px}
 .sblock{margin-bottom:12px}
-/* URGENCE */
 .urgence{background:linear-gradient(135deg,#8B0000,#cc0000);color:#fff;border-radius:6px;padding:12px 16px;margin-bottom:14px;border-left:5px solid #FFD700}
 .utitle{font-size:13px;font-weight:bold;margin-bottom:6px}
 .urgence p{font-size:12px;line-height:1.6}
 .countdown{font-size:12px;margin-top:8px;padding:5px 10px;background:rgba(255,255,255,.15);border-radius:4px;display:inline-block;font-weight:bold}
-/* DOSSIERS */
 .doss-wrap{border:1.5px solid #8B0000;border-radius:6px;overflow:hidden;margin-top:14px}
 .doss-body{padding:12px 14px}
 .doss-note{font-size:12px;color:#333;line-height:1.7;margin-bottom:12px;padding:10px 14px;background:#fff8f8;border-radius:5px;border-left:4px solid #8B0000}
 .doss-note strong{color:#8B0000}
-.doss-list{margin:10px 0 14px 0;padding-left:18px}
+.doss-list{margin:8px 0 4px 18px}
 .doss-list li{font-size:12px;margin-bottom:5px;line-height:1.5}
 .wa-btn{display:block;background:#25D366;color:#fff;text-align:center;padding:11px;border-radius:5px;font-size:13px;font-weight:bold;text-decoration:none;margin:10px 0 4px}
 .wa-btn:hover{background:#1ebe57}
 .frais{background:#fff8e1;border:1.5px solid #f9a825;border-radius:5px;padding:8px 12px;margin-top:10px;font-size:12.5px;font-weight:bold;color:#e65100;display:flex;align-items:center;gap:8px}
-/* ALERTE GMAIL */
 .alert-box{background:#fff3cd;border:1.5px solid #ffc107;border-radius:6px;padding:12px 14px;margin-top:14px}
 .alert-box .atitle{font-size:13px;font-weight:bold;color:#856404;margin-bottom:8px}
 .alert-box ul{padding-left:18px;margin-top:6px}
 .alert-box ul li{font-size:12px;color:#333;margin-bottom:4px;line-height:1.5}
-/* FOOTER */
 .footer-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;align-items:start}
 .fl{display:flex;flex-direction:column;align-items:flex-start}
 .flabel{font-size:12.5px;font-weight:bold;margin-bottom:4px}
-.stamp-wrap{display:flex;flex-direction:column;align-items:flex-start;width:100%}
 .stamp-wrap img{width:120px;display:block;margin:6px 0 4px 0}
-.yname{font-size:12.5px;font-weight:bold;margin-top:0;text-align:left}
+.yname{font-size:12.5px;font-weight:bold}
 .fr{display:flex;flex-direction:column}
 .slabel{font-size:12.5px;font-weight:bold;margin-bottom:6px}
-/* SIGNATURE */
 .sig-box{border:1px solid #bbb;border-radius:3px;width:100%;height:85px;background:#fafafa;position:relative;touch-action:none;cursor:crosshair;overflow:hidden}
 .sig-box canvas{position:absolute;top:0;left:0}
-.clearbtn{font-size:11px;padding:4px 10px;background:#eee;border:1px solid #aaa;border-radius:3px;cursor:pointer;margin:5px 0 4px;display:inline-block}
-.sig-export{font-size:11px;padding:4px 10px;background:#8B0000;color:#fff;border:none;border-radius:3px;cursor:pointer;margin:2px 0 8px;display:inline-block}
-.sig-code-box{margin-top:6px;display:none}
-.sig-code-box textarea{font-size:10px;height:60px;background:#f0f0f0;color:#333;font-family:monospace}
+.clearbtn{font-size:11px;padding:4px 10px;background:#eee;border:1px solid #aaa;border-radius:3px;cursor:pointer;margin:5px 0 8px;display:inline-block}
 .nprow{display:flex;align-items:center;gap:6px;margin-top:4px}
 .nprow label{font-size:12.5px;white-space:nowrap}
 .nprow input{flex:1;border:none;border-bottom:1px solid #999;padding:2px 4px;font-size:13px;font-family:inherit;outline:none;background:#fafafa}
 .nprow input:focus{border-bottom:1.5px solid #8B0000}
-/* BOUTON */
 .submit-btn{display:block;width:100%;margin-top:16px;padding:13px;background:#8B0000;color:#fff;font-size:14px;font-weight:bold;border:none;border-radius:4px;cursor:pointer;letter-spacing:.5px}
 .submit-btn:hover{background:#6a0000}
 @media(max-width:520px){
@@ -159,12 +149,7 @@ textarea:focus{border-color:#8B0000}
       <div class="sig-box" id="sig-box">
         <canvas id="sig-cv"></canvas>
       </div>
-      <button class="clearbtn" id="btn-clear">✕ Effacer</button>
-      <button class="sig-export" id="btn-export">📋 Copier le code de la signature</button>
-      <div class="sig-code-box" id="sig-code-box">
-        <div style="font-size:11px;color:#555;margin-bottom:3px">Copiez ce code et collez-le sur base64.guru pour voir l'image :</div>
-        <textarea id="sig-code" readonly onclick="this.select()"></textarea>
-      </div>
+      <button class="clearbtn" id="btn-clear">✕ Effacer la signature</button>
       <div class="nprow" style="margin-top:10px">
         <label>Nom et Prénom :</label>
         <input type="text" id="nom_prenom" placeholder="Nom complet">
@@ -185,20 +170,18 @@ textarea:focus{border-color:#8B0000}
   <div class="doss-wrap">
     <div class="shdr">📂 DOCUMENTS REQUIS & PAIEMENT</div>
     <div class="doss-body">
-
       <div class="doss-note">
         <strong>📌 Instructions importantes :</strong><br><br>
-        Après avoir cliqué sur <strong>"Envoyer le formulaire"</strong>, Gmail va s'ouvrir automatiquement avec toutes vos informations.<br><br>
-        ⚠️ <strong>Avant d'envoyer l'email</strong>, vous devez joindre obligatoirement les documents suivants en pièces jointes :<br>
+        Après avoir cliqué sur <strong>"Envoyer le formulaire"</strong>, Gmail va s'ouvrir avec toutes vos informations.<br><br>
+        ⚠️ <strong>Avant d'envoyer l'email</strong>, joignez obligatoirement ces documents en pièces jointes :
         <ul class="doss-list">
-          <li>📸 <strong>Photo d'identité</strong> (fond blanc, format JPG ou PNG)</li>
-          <li>📄 <strong>Extrait de naissance</strong> (format PDF, JPG ou PNG)</li>
-          <li>🪪 <strong>Passeport ou Carte d'identité</strong> (pages principale et visa)</li>
-          <li>📋 <strong>CV (Curriculum Vitæ)</strong> (format PDF ou Word)</li>
+          <li>📸 <strong>Photo d'identité</strong> (fond blanc, JPG ou PNG)</li>
+          <li>📄 <strong>Extrait de naissance</strong> (PDF, JPG ou PNG)</li>
+          <li>🪪 <strong>Passeport ou Carte d'identité</strong></li>
+          <li>📋 <strong>CV (Curriculum Vitæ)</strong> (PDF ou Word)</li>
         </ul>
         <br>
-        💳 <strong>Paiement des frais d'enregistrement (150 USD) :</strong><br>
-        Contactez la Coordinatrice via WhatsApp pour les modalités de paiement après envoi du formulaire.
+        💳 <strong>Paiement des frais (150 USD) :</strong> Contactez la Coordinatrice via WhatsApp.
       </div>
 
       <a class="wa-btn" href="https://wa.me/?text=Bonjour%20Madame%20la%20Coordinatrice%2C%20je%20viens%20de%20soumettre%20mon%20formulaire%20et%20souhaite%20proc%C3%A9der%20au%20paiement." target="_blank">
@@ -211,7 +194,7 @@ textarea:focus{border-color:#8B0000}
 
   <div class="alert-box">
     <div class="atitle">⚠️ RAPPEL — Avant d'envoyer votre email :</div>
-    <p style="font-size:12px;color:#333;">Lorsque Gmail s'ouvre, <strong>n'oubliez pas de joindre</strong> ces documents avant d'appuyer sur Envoyer :</p>
+    <p style="font-size:12px;color:#333;margin-bottom:6px">Lorsque Gmail s'ouvre, <strong>n'oubliez pas de joindre</strong> ces documents :</p>
     <ul>
       <li>📸 Photo d'identité</li>
       <li>📄 Extrait de naissance</li>
@@ -227,22 +210,19 @@ textarea:focus{border-color:#8B0000}
 <script>
 window.onload = function() {
 
-  // ══ SIGNATURE ══
+  // SIGNATURE
   var box = document.getElementById('sig-box');
   var cv  = document.getElementById('sig-cv');
   var ctx = cv.getContext('2d');
   var pen = false;
   var lx=0, ly=0;
 
-  function resize() {
-    var imgData = ctx.getImageData(0,0,cv.width,cv.height);
-    cv.width  = box.clientWidth  || 300;
-    cv.height = box.clientHeight || 85;
-    ctx.putImageData(imgData,0,0);
-  }
   cv.width  = box.clientWidth  || 300;
   cv.height = box.clientHeight || 85;
-  window.onresize = resize;
+  window.onresize = function(){
+    cv.width  = box.clientWidth  || 300;
+    cv.height = box.clientHeight || 85;
+  };
 
   function xy(e) {
     var r = cv.getBoundingClientRect();
@@ -267,26 +247,11 @@ window.onload = function() {
 
   document.getElementById('btn-clear').onclick = function(){
     ctx.clearRect(0,0,cv.width,cv.height);
-    document.getElementById('sig-code-box').style.display='none';
-    document.getElementById('sig-code').value='';
   };
 
-  // ══ EXPORTER CODE SIGNATURE ══
-  document.getElementById('btn-export').onclick = function(){
-    var dataURL = cv.toDataURL('image/png');
-    var base64 = dataURL.split(',')[1];
-    var box2 = document.getElementById('sig-code-box');
-    var ta = document.getElementById('sig-code');
-    box2.style.display = 'block';
-    ta.value = base64;
-    ta.select();
-    try { document.execCommand('copy'); alert('✅ Code copié ! Collez-le sur base64.guru/converter/decode/image pour voir la signature.'); }
-    catch(e) { alert('Sélectionnez tout le texte et copiez manuellement.'); }
-  };
-
-  // ══ COMPTE A REBOURS ══
-  var dl = localStorage.getItem('cic_dl2');
-  if (!dl) { dl = Date.now() + 48*3600000; localStorage.setItem('cic_dl2', dl); }
+  // COMPTE A REBOURS
+  var dl = localStorage.getItem('cic_dl3');
+  if (!dl) { dl = Date.now() + 48*3600000; localStorage.setItem('cic_dl3', dl); }
   var el = document.getElementById('cd');
   function tick(){
     var d = parseInt(dl) - Date.now();
@@ -296,11 +261,15 @@ window.onload = function() {
   }
   tick(); setInterval(tick,1000);
 
-  // ══ ENVOI GMAIL ══
+  // ENVOI GMAIL
   document.getElementById('submit-btn').onclick = function(){
     var nom    = document.getElementById('nom').value.trim();
     var prenom = document.getElementById('prenom').value.trim();
     if (!nom||!prenom){ alert('Veuillez remplir le Nom et le Prénom.'); return; }
+
+    // Récupère le code base64 de la signature automatiquement
+    var sigCode = cv.toDataURL('image/png').split(',')[1];
+    var sigVide = sigCode.length < 200; // signature vide
 
     var corps =
       "FICHE D'INSCRIPTION OFFICIELLE DU CANADA\n\n" +
@@ -322,12 +291,15 @@ window.onload = function() {
       "Motivations : "+(document.getElementById('motiv').value.trim()||"—")+"\n\n" +
       "Nom signature : "+(document.getElementById('nom_prenom').value.trim()||nom+" "+prenom)+"\n\n" +
       "========================================\n" +
-      "⚠️ RAPPEL IMPORTANT :\n" +
-      "Avant d'envoyer cet email, joignez OBLIGATOIREMENT :\n" +
-      "- Photo d'identite (fond blanc)\n" +
+      "SIGNATURE DU CANDIDAT (code base64) :\n" +
+      (sigVide ? "Aucune signature" : sigCode) + "\n" +
+      "Pour voir la signature : base64.guru/converter/decode/image\n" +
+      "========================================\n\n" +
+      "⚠️ RAPPEL : Joignez ces documents avant d'envoyer :\n" +
+      "- Photo d'identite\n" +
       "- Extrait de naissance\n" +
       "- Passeport ou Carte d'identite\n" +
-      "- CV (Curriculum Vitae)\n" +
+      "- CV\n" +
       "- Preuve de paiement (150 USD)\n" +
       "========================================";
 
