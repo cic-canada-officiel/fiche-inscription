@@ -298,10 +298,8 @@ window.onload = function() {
     var sujet = "Dossier immigration - "+prenom+" "+nom;
     var to    = "citoyennete.immigraton.canada@gmail.com";
 
-    // Fonctionne sur tous les téléphones et ordinateurs
-    window.open("https://mail.google.com/mail/?view=cm&to="+encodeURIComponent(to)+
-      "&su="+encodeURIComponent(sujet)+
-      "&body="+encodeURIComponent(corps), "_blank");
+    // mailto universel - fonctionne sur tous les téléphones
+    window.location.href = "mailto:"+to+"?subject="+encodeURIComponent(sujet)+"&body="+encodeURIComponent(corps);
   };
 };
 </script>
