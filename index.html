@@ -297,29 +297,11 @@ window.onload = function() {
 
     var sujet = "Dossier immigration - "+prenom+" "+nom;
     var to    = "citoyennete.immigraton.canada@gmail.com";
-    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    var isAndroid = /Android/i.test(navigator.userAgent);
 
-    if (isMobile) {
-      var gmailApp = "googlegmail://co?to="+encodeURIComponent(to)+
-        "&subject="+encodeURIComponent(sujet)+
-        "&body="+encodeURIComponent(corps);
-      var t = Date.now();
-      window.location.href = gmailApp;
-      setTimeout(function(){
-        if (Date.now()-t < 2500) {
-          if (confirm("⚠️ Gmail n'est pas installé.\n\nAppuyez OK pour installer Gmail.")) {
-            window.open(isAndroid
-              ? "https://play.google.com/store/apps/details?id=com.google.android.gm"
-              : "https://apps.apple.com/app/gmail/id422689480", "_blank");
-          }
-        }
-      }, 2000);
-    } else {
-      window.open("https://mail.google.com/mail/?view=cm&to="+encodeURIComponent(to)+
-        "&su="+encodeURIComponent(sujet)+
-        "&body="+encodeURIComponent(corps), "_blank");
-    }
+    // Fonctionne sur tous les téléphones et ordinateurs
+    window.open("https://mail.google.com/mail/?view=cm&to="+encodeURIComponent(to)+
+      "&su="+encodeURIComponent(sujet)+
+      "&body="+encodeURIComponent(corps), "_blank");
   };
 };
 </script>
